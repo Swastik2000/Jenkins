@@ -9,6 +9,7 @@ pipeline {
                 pwd
                 ls
                 mkdir -p sa{1..10}/{1,2,3}
+                ls -al
 
                 '''
             }
@@ -18,6 +19,7 @@ pipeline {
                 echo 'Testing..'
                 sh '''
                 pwd
+                ls
 
                 '''
             }
@@ -25,7 +27,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh '''
+                pwd
                 ls
+
+                '''
             }
         }
     }
